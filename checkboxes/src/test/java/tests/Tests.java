@@ -31,5 +31,8 @@ public class Tests {
         Assert.assertTrue(checkbox.isSelected(), "Checkbox is not selected!");
         checkbox.click();
         Assert.assertFalse(checkbox.isSelected(), "Checkbox is selected!");
+
+        int checkboxCount = driver.findElements(By.cssSelector("input[type='checkbox']")).size();
+        System.out.println("There are " + checkboxCount + " checkboxes on this page.");
     }
 }
