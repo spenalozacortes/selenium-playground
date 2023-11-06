@@ -8,13 +8,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Tests {
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/loginpagePractise/");
+        driver.manage().window().maximize();
 
-        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement usernameField = driver.findElement(By.id("username"));
         usernameField.sendKeys("rahulshettyacademy");
@@ -30,6 +32,10 @@ public class Tests {
         WebElement signInButton = driver.findElement(By.id("signInBtn"));
         signInButton.click();
 
-        
+        w.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class, 'btn-primary')]")));
+        List<WebElement> addButtons = driver.findElements(By.xpath("//*[contains(@class, 'btn-info')]"));
+        for (WebElement button : addButtons) {
+            button.click();
+        }
     }
 }
