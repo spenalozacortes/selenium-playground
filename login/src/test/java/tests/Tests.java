@@ -37,5 +37,10 @@ public class Tests {
         for (WebElement button : addButtons) {
             button.click();
         }
+
+        WebElement checkoutButton = driver.findElement(By.xpath("//*[contains(@class, 'btn-primary')]"));
+        checkoutButton.click();
+
+        driver.quit();
     }
 }
